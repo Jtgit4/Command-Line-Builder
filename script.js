@@ -99,3 +99,30 @@ window.onload = function() {
   // Initialize switch buttons when the page loads
   initSwitchButtons();
 };
+
+async function callChatGPT() {
+  const command = document.getElementById("generated-command").value;
+  const apiKey = document.getElementById("api-key").value;
+  const url = 'https://api.openai.com/v1/chat/completions';
+  const data = {
+      prompt: command,
+      max_tokens: 100
+  };
+
+  const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + apiKey
+      },
+      body: JSON.stringify(data)
+  });
+
+  const responseData = await response.json();
+
+  if (response.ok) {
+      document.getElementById("gpt-response").value = responseData.choices[0].text;
+  } else {
+      document.getElementById("gpt-response").value = 'Error: ' + responseData.error.message;
+  }
+}
