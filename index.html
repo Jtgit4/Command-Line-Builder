@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Command Builder</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <h1>Command Builder</h1>
+
+  <div class="input-container">
+    <label for="target-ip">Target IP address:</label>
+    <input type="text" id="target-ip" maxlength="15">
+  </div>
+
+  <div class="input-container">
+    <label for="target-port">Target Port:</label>
+    <input type="text" id="target-port" maxlength="6">
+  </div>
+
+  <div class="input-container">
+    <label for="attacking-ip">Attacking IP:</label>
+    <input type="text" id="attacking-ip" maxlength="15">
+  </div>
+
+  <div class="input-container">
+    <label for="attacking-port">Attacking Port:</label>
+    <input type="text" id="attacking-port" maxlength="6">
+  </div>
+
+  <!-- Tab links -->
+    <div class="tab" class="tab">
+      <button class="tablinks" onclick="openTab(event, 'nmap')">Nmap</button>
+      <button class="tablinks" onclick="openTab(event, 'feroxbuster')">FeroxBuster</button>
+      <button class="tablinks" onclick="openTab(event, 'gobuster')">Gobuster</button>
+      <button class="tablinks" onclick="openTab(event, 'dirbuster')">DirBuster</button>
+      <button class="tablinks" onclick="openTab(event, 'curl')">Curl</button>
+      <button class="tablinks" onclick="openTab(event, 'johntheripper')">John The Ripper</button>
+      <button class="tablinks" onclick="openTab(event, 'hashcat')">Hashcat</button>
+      <button class="tablinks" onclick="openTab(event, 'ncat')">Ncat</button>
+    </div>
+
+  <!-- Tab content -->
+  <div id="nmap" class="tabcontent">
+    <h3>Nmap</h3>
+    <div id="nmap-switches">
+      <!-- Nmap switches -->
+      <div class="switch-group">
+        <button class="switch-button selected" data-switch-value="-sV">-sV</button>
+        <p class="switch-description">Probe open ports to determine service/version info</p>
+      </div>
+      <div class="switch-group">
+        <button class="switch-button selected" data-switch-value="-sC">-sC</button>
+        <p class="switch-description">Script scan using the default set of scripts</p>
+      </div>
+      <div class="switch-group">
+        <button class="switch-button selected" data-switch-value="-oA">-oA</button>
+        <p class="switch-description">Output in the three major formats at once</p>
+      </div>
+      <div class="switch-group">
+        <button class="switch-button selected" data-switch-value="-Pn">-Pn</button>
+        <p class="switch-description">Bypass host up check, speeds up Nmap</p>
+      </div>
+      <div class="switch-group">
+        <button class="switch-button selected" data-switch-value="-p">-p</button>
+        <p class="switch-description">Define a port to scan</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="feroxbuster" class="tabcontent">
+    <h3>FeroxBuster</h3>
+    <p>This is the FeroxBuster tab content.</p>
+  </div>
+
+  <div id="gobuster" class="tabcontent">
+    <h3>Gobuster</h3>
+    <p>This is the Gobuster tab content.</p>
+  </div>
+
+  <div id="dirbuster" class="tabcontent">
+    <h3>DirBuster</h3>
+    <p>This is the DirBuster tab content.</p>
+  </div>
+
+  <div id="curl" class="tabcontent">
+    <h3>Curl</h3>
+    <p>This is the Curl tab content.</p>
+  </div>
+
+  <div id="johntheripper" class="tabcontent">
+    <h3>John The Ripper</h3>
+    <p>This is the John The Ripper tab content.</p>
+  </div>
+
+  <div id="hashcat" class="tabcontent">
+    <h3>Hashcat</h3>
+    <p>This is the Hashcat tab content.</p>
+  </div>
+
+  <div id="ncat" class="tabcontent">
+    <h3>Ncat</h3>
+    <p>This is the Ncat tab content.</p>
+  </div>
+
+  <div class="button-container">
+    <button type="button" class="button" onclick="generateCommand()">Generate Command</button>
+  </div>
+  
+  <div class="code-container">
+    <textarea id="generated-command" readonly></textarea>
+    <div id="code-description" class="code-description"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
