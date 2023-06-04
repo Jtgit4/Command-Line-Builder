@@ -126,3 +126,12 @@ async function callChatGPT() {
       document.getElementById("gpt-response").value = 'Error: ' + responseData.error.message;
   }
 }
+
+function toggleChatGPTExplainer() {
+  var explainerContent = document.querySelector('.chat-gpt-explainer-content');
+  if (explainerContent.style.display === "none") {
+    explainerContent.style.display = "block";
+  } else {
+    explainerContent.style.display = "none";
+  }
+}

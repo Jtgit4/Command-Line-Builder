@@ -1,7 +1,21 @@
-body {
-  background-color: #0f0f0f!important;
-  color: #00E100;
+body, input, select, textarea {
   font-family: "Courier New", monospace;
+  background-color: #202020;
+  color: #00B100;
+  #generated-command {
+    width: 100%;
+    height: 150px;
+    padding: 5px;
+    font-family: Consolas, monospace;
+    font-size: 18px; /* Increase the font-size as you need */
+    font-weight: bold; /* Make the font bold */
+    resize: none;
+    background-color: #303030;
+    color: #00B100;
+  }
+}
+
+body {
   margin: 20px;
 }
 
@@ -9,35 +23,47 @@ h1 {
   text-align: center;
 }
 
-.input-container {
-  margin-bottom: 10px;
-  width: 75%;
+.ip-port-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
   margin: 0 auto;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-block: 1px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .input-container label {
-  display: block;
-  margin-bottom: 5px;
+  align-self: flex-start;
+  margin-bottom: 10px;
 }
 
-.input-container input,
-.input-container select {
+.input-container input {
   width: 100%;
-  padding: 5px;
-  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #00B100;
   background-color: #303030;
-  color: #00B100;
 }
 
 .button-container {
-  width: 75%;
-  margin: 0 auto;
   text-align: center;
 }
 
 .button {
   background-color: #00E100;
-  color: #FFFFFF;
+  color: #303030;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -50,12 +76,12 @@ h1 {
   background-color: #00B400;
 }
 
-.code-container {
+.code-container,
+.response-container {
   margin-top: 20px;
-  width: 75%;
-  margin: 0 auto;
-  background-color: #303030;
   color: #00B100;
+  margin: auto;
+  width: 75%;
 }
 
 textarea {
@@ -66,21 +92,26 @@ textarea {
   font-size: 14px;
   resize: none;
   background-color: #303030;
-  color: #00B100;
 }
 
 .code-description {
   margin-top: 10px;
   font-size: 14px;
+  background-color: #303030;
 }
 
-/* Tab Styles */
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #303030;
   color: #00B100;
   font-weight: bold;
+  text-align: center;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 75%;
+  border: 1px solid #00B100;
 }
 
 .tab button {
@@ -112,11 +143,10 @@ textarea {
   color: #00B100;
 }
 
-.tab {
-  width: 75%;
-  text-align: center;
-  margin: auto;
-  margin-top: 15px;
+.switch-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 15px;
 }
 
@@ -137,10 +167,67 @@ textarea {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: #303030;
   color: #00B100;
+  z-index: 1;
+  user-select: none;
+  pointer-events: auto;
 }
 
 .switch-button.selected {
-  background-color: #008CBA; 
-  color: white; 
+  background-color: #00E100;
+  color: #000000;
 }
 
+.switch-description {
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.switch-button:hover {
+  background-color: #00E100;
+  color: black;
+}
+
+.switch-button:active {
+  background-color: #00B400;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.gpt-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.chat-gpt-explainer-container {
+  width: 75%;
+  margin: 0 auto 20px;
+}
+
+.chat-gpt-explainer-button {
+  background-color: #00E100;
+  color: #303030;
+  border: none;
+  padding: 10px 20px;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.chat-gpt-explainer-content {
+  display: none;
+  border: 1px solid #ccc;
+  padding: 0 20px;
+}
+
+.chat-gpt-explainer-button:active {
+  background-color: #00B400;
+}
+
+.chat-gpt-explainer-button:hover {
+  background-color: #00B400;
+}

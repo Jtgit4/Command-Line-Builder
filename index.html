@@ -9,36 +9,39 @@
 <body>
   <h1>Command Builder</h1>
 
-  <div class="input-container">
-    <label for="target-ip">Target IP address:</label>
-    <input type="text" id="target-ip" maxlength="15">
+  <div class="ip-port-container">
+    <div class="input-container">
+      <h2><label for="target-ip">Target IP</label></h2>
+      <input type="text" id="target-ip" maxlength="15">
+    </div>
+  
+    <div class="input-container">
+      <h2><label for="target-port">Target Port</label></h2>
+      <input type="text" id="target-port" maxlength="6">
+    </div>
+  
+    <div class="input-container">
+      <h2><label for="attacking-ip">Attacking IP</label></h2>
+      <input type="text" id="attacking-ip" maxlength="15">
+    </div>
+  
+    <div class="input-container">
+      <h2><label for="attacking-port">Attacking Port</label></h2>
+      <input type="text" id="attacking-port" maxlength="6">
+    </div>
   </div>
-
-  <div class="input-container">
-    <label for="target-port">Target Port:</label>
-    <input type="text" id="target-port" maxlength="6">
-  </div>
-
-  <div class="input-container">
-    <label for="attacking-ip">Attacking IP:</label>
-    <input type="text" id="attacking-ip" maxlength="15">
-  </div>
-
-  <div class="input-container">
-    <label for="attacking-port">Attacking Port:</label>
-    <input type="text" id="attacking-port" maxlength="6">
-  </div>
+  
 
   <!-- Tab links -->
     <div class="tab" class="tab">
-      <button class="tablinks" onclick="openTab(event, 'nmap')">Nmap</button>
-      <button class="tablinks" onclick="openTab(event, 'feroxbuster')">FeroxBuster</button>
-      <button class="tablinks" onclick="openTab(event, 'gobuster')">Gobuster</button>
-      <button class="tablinks" onclick="openTab(event, 'dirbuster')">DirBuster</button>
-      <button class="tablinks" onclick="openTab(event, 'curl')">Curl</button>
-      <button class="tablinks" onclick="openTab(event, 'johntheripper')">John The Ripper</button>
-      <button class="tablinks" onclick="openTab(event, 'hashcat')">Hashcat</button>
-      <button class="tablinks" onclick="openTab(event, 'ncat')">Ncat</button>
+      <button class="tablinks" onclick="openTab(event, 'nmap')"><h2>Nmap</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'feroxbuster')"><h2>FeroxBuster</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'gobuster')"><h2>Gobuster</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'dirbuster')"><h2>DirBuster</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'curl')"><h2>Curl</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'johntheripper')"><h2>John The Ripper</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'hashcat')"><h2>Hashcat</h2></button>
+      <button class="tablinks" onclick="openTab(event, 'ncat')"><h2>Ncat</h2></button>
     </div>
 
   <!-- Tab content -->
@@ -113,17 +116,23 @@
     <div id="code-description" class="code-description"></div>
   </div>
 
-<div class="input-container">
-    <label for="api-key">API Key:</label>
-    <input type="text" id="api-key" maxlength="32">
+  <div class="chat-gpt-explainer-container">
+    <button onclick="toggleChatGPTExplainer()" class="chat-gpt-explainer-button">Chat-GPT Explainer</button>
+    <div class="chat-gpt-explainer-content">
+        <div class="input-container">
+            <label for="api-key">API Key:</label>
+            <input type="text" id="api-key" maxlength="32">
+        </div>
+        <div class="button-container">
+            <button type="button" class="button" onclick="callChatGPT()">Send Command to GPT</button>
+        </div>
+        <div class="response-container">
+            <label for="gpt-response">GPT Response:</label>
+            <textarea id="gpt-response" readonly></textarea>
+        </div>
+    </div>
 </div>
-<div class="button-container">
-    <button type="button" class="button" onclick="callChatGPT()">Send Command to GPT</button>
-</div>
-<div class="response-container">
-    <label for="gpt-response">GPT Response:</label>
-    <textarea id="gpt-response" readonly></textarea>
-</div>
+
 
   <script src="script.js"></script>
 </body>
