@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
   <title>Command Builder</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
@@ -33,44 +35,35 @@
   
 
   <!-- Tab links -->
-    <div class="tab" class="tab">
-      <button class="tablinks" onclick="openTab(event, 'nmap')"><h2>Nmap</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'feroxbuster')"><h2>FeroxBuster</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'gobuster')"><h2>Gobuster</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'dirbuster')"><h2>DirBuster</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'curl')"><h2>Curl</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'johntheripper')"><h2>John The Ripper</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'hashcat')"><h2>Hashcat</h2></button>
-      <button class="tablinks" onclick="openTab(event, 'ncat')"><h2>Ncat</h2></button>
+  <div class="tab" class="tab button">
+    <button class="tablinks" onclick="openTab(event, 'nmap')" data-tool="nmap"><h2>Nmap</h2></button>
+    <button class="tablinks" onclick="openTab(event, 'ncat')" data-tool="ncat"><h2>Ncat</h2></button>
     </div>
 
-  <!-- Tab content -->
-  <div id="nmap" class="tabcontent">
-    <h3>Nmap</h3>
-    <div id="nmap-switches">
-      <!-- Nmap switches -->
-      <div class="switch-group">
-        <button class="switch-button selected" data-switch-value="-sV">-sV</button>
-        <p class="switch-description">Probe open ports to determine service/version info</p>
-      </div>
-      <div class="switch-group">
-        <button class="switch-button selected" data-switch-value="-sC">-sC</button>
-        <p class="switch-description">Script scan using the default set of scripts</p>
-      </div>
-      <div class="switch-group">
-        <button class="switch-button selected" data-switch-value="-oA">-oA</button>
-        <p class="switch-description">Output in the three major formats at once</p>
-      </div>
-      <div class="switch-group">
-        <button class="switch-button selected" data-switch-value="-Pn">-Pn</button>
-        <p class="switch-description">Bypass host up check, speeds up Nmap</p>
-      </div>
-      <div class="switch-group">
-        <button class="switch-button selected" data-switch-value="-p">-p</button>
-        <p class="switch-description">Define a port to scan</p>
+    <div id="nmap" class="tabcontent">
+      <div id="nmap-switches">
+        <!-- Nmap switches -->
+        <!-- ... -->
+        <div class="switch-group">
+          <button class="switch-button" data-switch-value="-sV" data-tool="nmap">-sV</button>
+          <p class="switch-description">Probe open ports to determine service/version info</p>
+        </div>
+        <!-- More Nmap switches... -->
       </div>
     </div>
-  </div>
+    
+    <div id="ncat" class="tabcontent" style="display: none;">
+      <div id="ncat-switches">
+        <!-- Ncat switches -->
+        <div class="switch-group">
+          <button class="switch-button" data-switch-value="-lvnp" data-tool="ncat">-lvnp</button>
+          <p class="switch-description">Listen for incoming connections without performing DNS resolution</p>
+        </div>
+        <!-- More Ncat switches... -->
+      </div>
+    </div>
+    
+  
 
   <div id="feroxbuster" class="tabcontent">
     <h3>FeroxBuster</h3>
@@ -113,11 +106,10 @@
   
   <div class="code-container">
     <textarea id="generated-command" readonly></textarea>
-    <div id="code-description" class="code-description"></div>
   </div>
 
   <div class="chat-gpt-explainer-container">
-    <button onclick="toggleChatGPTExplainer()" class="chat-gpt-explainer-button">Chat-GPT Explainer</button>
+    <button onclick="toggleChatGPTExplainer()" class="button">Chat-GPT Explainer</button>
     <div class="chat-gpt-explainer-content">
         <div class="input-container">
             <label for="api-key">API Key:</label>

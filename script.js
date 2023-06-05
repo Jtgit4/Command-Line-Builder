@@ -8,9 +8,11 @@ const nmapSwitches = [
 ];
 
 
+
+
 // Function to update the code description based on the selected command and switches
 function updateCodeDescription(nmapSwitchButtons) {
-  const codeDescription = document.getElementById("code-description");
+/*  const codeDescription = document.getElementById("code-description");
   codeDescription.innerHTML = "";
 
   // Check if nmap tab is active
@@ -26,7 +28,9 @@ function updateCodeDescription(nmapSwitchButtons) {
       codeDescription.textContent = "Performs a scan on the target IP and port using Nmap";
     }
   }
+*/
 }
+
 
 // JavaScript Code
 function openTab(evt, tabName) {
@@ -41,6 +45,12 @@ function openTab(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
+
+    // Remove the "active" class from all tool buttons
+    document.querySelectorAll('.tablinks').forEach(button => button.classList.remove('active'));
+
+    // Add the "active" class to the clicked tool button
+    evt.currentTarget.classList.add('active');
 }
 
 // Function to initialize switch buttons
@@ -56,44 +66,44 @@ function initSwitchButtons() {
 
 // Function to generate the command based on the selected options
 function generateCommand() {
-  const targetIP = document.getElementById("target-ip").value;
-  const targetPort = document.getElementById("target-port").value;
+  // Get the selected tool
+  const tool = document.querySelector('.tablinks.active').getAttribute('data-tool');
 
-  // We find the selected tab using the 'active' class
-  const activeTab = document.querySelector(".tablinks.active").innerText.toLowerCase();
+  // Get the active switch buttons for the selected tool
+  const activeSwitches = Array.from(document.querySelectorAll(`.switch-button[data-tool="${tool}"].selected`));
 
-  let command = "";
+  // Generate the switches string
+  const switches = activeSwitches.map(button => button.getAttribute('data-switch-value')).join(' ');
 
-  if (activeTab === 'nmap') {
-    command = "nmap ";
-    
-    const nmapSwitchButtons = document.querySelectorAll("#nmap .switch-button.selected");
-    let portSwitch = false;
+  // Get the target IP and port, and the attacking IP and port
+  const targetIP = document.getElementById('target-ip').value;
+  const targetPort = document.getElementById('target-port').value;
+  const attackingIP = document.getElementById('attacking-ip').value;
+  const attackingPort = document.getElementById('attacking-port').value;
 
-    nmapSwitchButtons.forEach((button) => {
-      // Only add the -p switch value to command if it is not the -p switch
-      if (button.dataset.switchValue !== "-p") {
-        command += button.dataset.switchValue + " ";
-      } else {
-        portSwitch = true;
+  let command;
+
+  // Generate the command based on the selected tool
+  switch (tool) {
+    case 'nmap':
+      command = `nmap ${switches}`;
+      if(targetIP){
+        command += ` ${targetIP}`;
+        if(targetPort) command += `:${targetPort}`;
       }
-    });
-
-    // Add IP address and port in the correct position based on whether the -p switch is active
-    if(portSwitch){
-      command += targetIP + " ";
-      command += "-p " + targetPort + " ";
-    } else {
-      command += targetIP + " ";
-    }
-
-    updateCodeDescription(nmapSwitchButtons);
+      break;
+    case 'ncat':
+      command = `nc ${switches}`;
+      if(attackingPort){
+        command += ` ${attackingPort}`;
+      }
+      break;
   }
 
-  // Similar conditions for other tools like Gobuster, FeroxBuster, etc., can be added here
-
-  document.getElementById("generated-command").value = command;
+  // Set the command in the textarea
+  document.getElementById('generated-command').value = command;
 }
+
 
 window.onload = function() {
   // Initialize switch buttons when the page loads
@@ -134,4 +144,31 @@ function toggleChatGPTExplainer() {
   } else {
     explainerContent.style.display = "none";
   }
+}
+
+function switchTool() {
+  const tool = this.value;
+
+  // Get all switch buttons
+  const switchButtons = document.querySelectorAll('.switch-button');
+
+  // Switch tool when a radio button is selected
+  document.querySelectorAll('input[name="tool"]').forEach(radioButton => {
+    radioButton.addEventListener('change', switchTool);
+  });
+
+  // Show or hide each switch button depending on the selected tool
+  switchButtons.forEach(button => {
+    if (button.getAttribute('data-tool') === tool) {
+      button.parentElement.style.display = 'block';
+    } else {
+      button.parentElement.style.display = 'none';
+      button.classList.remove('active'); // Deselect the switch
+    }
+  });
+}
+
+
+function toggleSwitch(button) {
+  button.classList.toggle('active');
 }

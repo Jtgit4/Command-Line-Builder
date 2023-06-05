@@ -15,6 +15,7 @@ body, input, select, textarea {
   }
 }
 
+
 body {
   margin: 20px;
 }
@@ -55,6 +56,8 @@ h1 {
   border-radius: 5px;
   border: 1px solid #00B100;
   background-color: #303030;
+  font-weight: bold; /* makes the input text bold */
+  font-size: 16px;
 }
 
 .button-container {
@@ -62,8 +65,8 @@ h1 {
 }
 
 .button {
-  background-color: #00E100;
-  color: #303030;
+  background-color: #303030;
+  color: #00B100; /* change the color of the button text */
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -72,8 +75,20 @@ h1 {
   margin-top: 15px;
 }
 
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #00B100; /* New style added */
+}
+
 .button:hover {
   background-color: #00B400;
+  color: #303030;
 }
 
 .code-container,
@@ -82,6 +97,7 @@ h1 {
   color: #00B100;
   margin: auto;
   width: 75%;
+  
 }
 
 textarea {
@@ -129,13 +145,13 @@ textarea {
 }
 
 .tab button.active {
-  background-color: #ccc;
+  background-color: #00B100;
+  color: #202020;
 }
 
 .tabcontent {
   display: none;
   border: 1px solid #ccc;
-  border-top: none;
   color: #333;
   margin: auto; 
   width: 75%;
@@ -175,6 +191,7 @@ textarea {
 .switch-button.selected {
   background-color: #00E100;
   color: #000000;
+  border: 1px solid #ccc;
 }
 
 .switch-description {
@@ -190,6 +207,7 @@ textarea {
 .switch-button:active {
   background-color: #00B400;
   box-shadow: 0 5px #666;
+  border: 1px solid #ccc;
   transform: translateY(4px);
 }
 
@@ -204,30 +222,39 @@ textarea {
 .chat-gpt-explainer-container {
   width: 75%;
   margin: 0 auto 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .chat-gpt-explainer-button {
-  background-color: #00E100;
-  color: #303030;
+  color: #00E100;
+  background-color: #303030;
   border: none;
   padding: 10px 20px;
-  text-align: left;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
   font-size: 16px;
+  text-align: center;
+  align-items: center;
 }
 
 .chat-gpt-explainer-content {
   display: none;
   border: 1px solid #ccc;
   padding: 0 20px;
+  margin:auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .chat-gpt-explainer-button:active {
   background-color: #00B400;
+  color: #303030
 }
 
 .chat-gpt-explainer-button:hover {
   background-color: #00B400;
+  color: #303030
 }
