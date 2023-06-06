@@ -1,7 +1,7 @@
 body, input, select, textarea {
   font-family: "Courier New", monospace;
   background-color: #202020;
-  color: #00B100;
+  color: #00E100;
   #generated-command {
     width: 100%;
     height: 150px;
@@ -11,7 +11,7 @@ body, input, select, textarea {
     font-weight: bold; /* Make the font bold */
     resize: none;
     background-color: #303030;
-    color: #00B100;
+    color: #00E100;
   }
 }
 
@@ -22,6 +22,12 @@ body {
 
 h1 {
   text-align: center;
+  font-weight: bold;
+}
+
+.header {
+  margin-bottom: 25px;
+  font-weight: bold;
 }
 
 .ip-port-container {
@@ -48,13 +54,14 @@ h1 {
 .input-container label {
   align-self: flex-start;
   margin-bottom: 10px;
+  font-weight: bold
 }
 
 .input-container input {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #00B100;
+  border: 1px solid #00E100;
   background-color: #303030;
   font-weight: bold; /* makes the input text bold */
   font-size: 16px;
@@ -66,7 +73,7 @@ h1 {
 
 .button {
   background-color: #303030;
-  color: #00B100; /* change the color of the button text */
+  color: #00E100; /* change the color of the button text */
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -83,18 +90,18 @@ h1 {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  color: #00B100; /* New style added */
+  color: #00E100; /* New style added */
 }
 
 .button:hover {
-  background-color: #00B400;
+  background-color: #00E100;
   color: #303030;
 }
 
 .code-container,
 .response-container {
   margin-top: 20px;
-  color: #00B100;
+  color: #00E100;
   margin: auto;
   width: 75%;
   
@@ -120,14 +127,14 @@ textarea {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #303030;
-  color: #00B100;
+  color: #00E100;
   font-weight: bold;
   text-align: center;
   margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
   width: 75%;
-  border: 1px solid #00B100;
+  border: 1px solid #00E100;
 }
 
 .tab button {
@@ -145,7 +152,7 @@ textarea {
 }
 
 .tab button.active {
-  background-color: #00B100;
+  background-color: #00E100;
   color: #202020;
 }
 
@@ -156,8 +163,9 @@ textarea {
   margin: auto; 
   width: 75%;
   background-color: #303030;
-  color: #00B100;
+  color: #00E100;
 }
+
 
 .switch-group {
   display: flex;
@@ -168,7 +176,7 @@ textarea {
 
 .switch-button {
   border: none;
-  color: #00B100;
+  color: #00E100;
   text-align: center;
   display: inline-block;
   transition-duration: 0.4s;
@@ -182,7 +190,7 @@ textarea {
   border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: #303030;
-  color: #00B100;
+  color: #00E100;
   z-index: 1;
   user-select: none;
   pointer-events: auto;
@@ -205,7 +213,7 @@ textarea {
 }
 
 .switch-button:active {
-  background-color: #00B400;
+  background-color: #00E100;
   box-shadow: 0 5px #666;
   border: 1px solid #ccc;
   transform: translateY(4px);
@@ -250,11 +258,99 @@ textarea {
 }
 
 .chat-gpt-explainer-button:active {
-  background-color: #00B400;
+  background-color: #00E100;
   color: #303030
 }
 
 .chat-gpt-explainer-button:hover {
-  background-color: #00B400;
+  background-color: #00E100;
   color: #303030
+}
+
+#commands-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #303030;
+}
+
+#commands-table th, #commands-table td {
+  border: 1px solid #ddd;
+  background-color: #303030;
+  padding: 8px;
+}
+
+#commands-table th {
+  background-color: #303030;
+  color: black;
+}
+
+#commands-table tr:nth-child(even) {
+  background-color: #303030;
+}
+
+.list-group {
+  border-radius: .25rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding-left: 0;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.command-details {
+  display: none;
+}
+
+.col-12-col-md-3 {
+  text-align: center;
+}
+
+.card-body {
+  position: relative; /* required to contain the absolute positioning of the button */
+  /* add other styles as required */
+}
+
+#generate-command {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: left;
+  }
+
+#switch-selection-1 {
+    border: 1px solid #000; /* sets a black border */
+    background-color: #303030; /* sets a light gray background */
+    padding: 10px; /* adds some space around the switches */
+    /* add other styles as required */
+    height: 540px;
+  }
+
+  .bg-success {
+    background-color: #202020 !important;
+  }
+
+.mt-4 {
+  margin-top: 1.5rem!important;
+  width: 75%;
+  text-align: left;
+  margin: auto;
+}
+
+.list-group-item {
+  background-color: #303030;
+  color: #00E100;
+  font-weight: bold;
+}
+.flex-grow-1{
+  background-color: #303030;
+  color: #00E100;
+  font-weight: bold;
+  border: 1px solid #000;
+}
+
+.btn {
+  background-color: #303030;
+  color: #00E100;
+  border: 1px solid #00E100;
 }

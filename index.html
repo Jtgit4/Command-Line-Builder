@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-
-
-
 <head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Popper.js, and Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Your custom JavaScript can go here -->
+    <script src="script.js"></script>
+
+          <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* ... */
+    </style>
+
+</head>
   <title>Command Builder</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
+  <div class ="header">
   <h1>Command Builder</h1>
+  </div>
 
   <div class="ip-port-container">
     <div class="input-container">
@@ -32,81 +48,47 @@
       <input type="text" id="attacking-port" maxlength="6">
     </div>
   </div>
-  
 
-  <!-- Tab links -->
-  <div class="tab" class="tab button">
-    <button class="tablinks" onclick="openTab(event, 'nmap')" data-tool="nmap"><h2>Nmap</h2></button>
-    <button class="tablinks" onclick="openTab(event, 'ncat')" data-tool="ncat"><h2>Ncat</h2></button>
-    </div>
-
-    <div id="nmap" class="tabcontent">
-      <div id="nmap-switches">
-        <!-- Nmap switches -->
-        <!-- ... -->
-        <div class="switch-group">
-          <button class="switch-button" data-switch-value="-sV" data-tool="nmap">-sV</button>
-          <p class="switch-description">Probe open ports to determine service/version info</p>
+  <div class="card-text mt-4">
+    <div class="row d-flex justify-content-center bg-success">
+      <div class="col-4">
+        <div id="command-selection" class="list-group overflow-auto" style="max-height:520px">
+          <!--... your other buttons ...-->
+          <button class="list-group-item list-group-item-action" data-command="Nmap">Nmap</button>
+          <button class="list-group-item list-group-item-action" data-command="Ncat">Ncat</button>
+          <button class="list-group-item list-group-item-action" data-command="FeroxBuster">FeroxBuster</button>
+          <button class="list-group-item list-group-item-action" data-command="HashCat">HashCat</button>
+          <button class="list-group-item list-group-item-action" data-command="Curl">Curl</button>
+          <button class="list-group-item list-group-item-action" data-command="Nmap">Nmap</button>
+          <button class="list-group-item list-group-item-action" data-command="Ncat">Ncat</button>
+          <button class="list-group-item list-group-item-action" data-command="FeroxBuster">FeroxBuster</button>
+          <button class="list-group-item list-group-item-action" data-command="HashCat">HashCat</button>
+          <button class="list-group-item list-group-item-action" data-command="Curl">Curl</button>
+          <button class="list-group-item list-group-item-action" data-command="Nmap">Nmap</button>
+          <button class="list-group-item list-group-item-action" data-command="Ncat">Ncat</button>
+          <button class="list-group-item list-group-item-action" data-command="FeroxBuster">FeroxBuster</button>
+          <button class="list-group-item list-group-item-action" data-command="HashCat">HashCat</button>
+          <button class="list-group-item list-group-item-action" data-command="Curl">Curl</button>
         </div>
-        <!-- More Nmap switches... -->
+        <button id="raw-button" class="btn btn-primary mt-2">Raw</button>
+        <button id="create-command-button" class="btn btn-primary mt-2">Create Command</button>
+      </div>
+      <div class="col-8 d-flex flex-column">
+        <div class="flex-grow-1">
+          <div id="switch-selection-1" class="list-group overflow-auto" style="max-height:520px">
+            <!-- The switches for the selected option will be added here -->
+          </div>
+          <div id="code-output" class="mt-2 p-2 border border-secondary rounded" style="min-height:100px;">
+            <!-- The output of the generate command button will be added here -->
+          </div>
+        </div>
       </div>
     </div>
-    
-    <div id="ncat" class="tabcontent" style="display: none;">
-      <div id="ncat-switches">
-        <!-- Ncat switches -->
-        <div class="switch-group">
-          <button class="switch-button" data-switch-value="-lvnp" data-tool="ncat">-lvnp</button>
-          <p class="switch-description">Listen for incoming connections without performing DNS resolution</p>
-        </div>
-        <!-- More Ncat switches... -->
-      </div>
-    </div>
-    
-  
-
-  <div id="feroxbuster" class="tabcontent">
-    <h3>FeroxBuster</h3>
-    <p>This is the FeroxBuster tab content.</p>
-  </div>
-
-  <div id="gobuster" class="tabcontent">
-    <h3>Gobuster</h3>
-    <p>This is the Gobuster tab content.</p>
-  </div>
-
-  <div id="dirbuster" class="tabcontent">
-    <h3>DirBuster</h3>
-    <p>This is the DirBuster tab content.</p>
-  </div>
-
-  <div id="curl" class="tabcontent">
-    <h3>Curl</h3>
-    <p>This is the Curl tab content.</p>
-  </div>
-
-  <div id="johntheripper" class="tabcontent">
-    <h3>John The Ripper</h3>
-    <p>This is the John The Ripper tab content.</p>
-  </div>
-
-  <div id="hashcat" class="tabcontent">
-    <h3>Hashcat</h3>
-    <p>This is the Hashcat tab content.</p>
-  </div>
-
-  <div id="ncat" class="tabcontent">
-    <h3>Ncat</h3>
-    <p>This is the Ncat tab content.</p>
-  </div>
-
-  <div class="button-container">
-    <button type="button" class="button" onclick="generateCommand()">Generate Command</button>
   </div>
   
-  <div class="code-container">
-    <textarea id="generated-command" readonly></textarea>
-  </div>
+  
+  
+  
 
   <div class="chat-gpt-explainer-container">
     <button onclick="toggleChatGPTExplainer()" class="button">Chat-GPT Explainer</button>
@@ -125,8 +107,6 @@
     </div>
 </div>
 
-
-  <script src="script.js"></script>
 </body>
 
 </html>
