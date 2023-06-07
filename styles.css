@@ -332,7 +332,7 @@ textarea {
 
 .mt-4 {
   margin-top: 1.5rem!important;
-  width: 75%;
+  width: 65%;
   text-align: left;
   margin: auto;
 }
@@ -352,5 +352,52 @@ textarea {
 .btn {
   background-color: #303030;
   color: #00E100;
+  border: 1px solid #00E100;
+}
+
+.switch-button {
+  border: none;
+  color: #00B100;
+  text-align: center;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: 10px 2px;
+  padding: 10px 24px;
+  font-size: 17px;
+  width: auto;
+  overflow: auto;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: #303030;
+  color: #00B100;
+}
+
+.switch-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.switch-button {
+  flex-basis: 115px; /* This controls the width of the switch */
+  margin-right: 15px;
+}
+
+.switch-description {
+  flex-grow: 1;
+}
+
+#code-output-container {
+  position: relative;
+}
+
+#copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #00E100;
+  background-color: #303030;
   border: 1px solid #00E100;
 }

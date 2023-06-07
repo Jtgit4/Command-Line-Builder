@@ -59,19 +59,14 @@
           <button class="list-group-item list-group-item-action" data-command="FeroxBuster">FeroxBuster</button>
           <button class="list-group-item list-group-item-action" data-command="HashCat">HashCat</button>
           <button class="list-group-item list-group-item-action" data-command="Curl">Curl</button>
-          <button class="list-group-item list-group-item-action" data-command="Nmap">Nmap</button>
-          <button class="list-group-item list-group-item-action" data-command="Ncat">Ncat</button>
-          <button class="list-group-item list-group-item-action" data-command="FeroxBuster">FeroxBuster</button>
-          <button class="list-group-item list-group-item-action" data-command="HashCat">HashCat</button>
-          <button class="list-group-item list-group-item-action" data-command="Curl">Curl</button>
-          <button class="list-group-item list-group-item-action" data-command="Nmap">Nmap</button>
-          <button class="list-group-item list-group-item-action" data-command="Ncat">Ncat</button>
-          <button class="list-group-item list-group-item-action" data-command="FeroxBuster">FeroxBuster</button>
-          <button class="list-group-item list-group-item-action" data-command="HashCat">HashCat</button>
-          <button class="list-group-item list-group-item-action" data-command="Curl">Curl</button>
+          <button class="list-group-item list-group-item-action" data-command="PythonServer">PythonServer</button>
+          <button class="list-group-item list-group-item-action" data-command="GoBuster">GoBuster</button>
+          <button class="list-group-item list-group-item-action" data-command="SQLMap">SQLMap</button>
+          <button class="list-group-item list-group-item-action" data-command="Fuff">Fuff</button>
         </div>
         <button id="raw-button" class="btn btn-primary mt-2">Raw</button>
         <button id="create-command-button" class="btn btn-primary mt-2">Create Command</button>
+        <button id="copy-to-clipboard" class="btn btn-primary mt-2">Copy to Clipboard</button>
       </div>
       <div class="col-8 d-flex flex-column">
         <div class="flex-grow-1">
@@ -79,17 +74,14 @@
             <!-- The switches for the selected option will be added here -->
           </div>
           <div id="code-output" class="mt-2 p-2 border border-secondary rounded" style="min-height:100px;">
-            <!-- The output of the generate command button will be added here -->
+            <div id="generated-command">
+                </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   
-  
-  
-  
-
   <div class="chat-gpt-explainer-container">
     <button onclick="toggleChatGPTExplainer()" class="button">Chat-GPT Explainer</button>
     <div class="chat-gpt-explainer-content">
